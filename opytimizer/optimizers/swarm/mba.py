@@ -2,6 +2,7 @@
 """
 
 import copy
+import random 
 
 import numpy as np
 from tqdm import tqdm
@@ -186,7 +187,13 @@ class BA(Optimizer):
         return new_position
 
     def baModification(self, agents):
-        pass
+        for agent in agents:
+            #cria uma nova lista a partir da exclusão do bat atual
+            new_agents = agents.remove(agent)
+            #seleciona três morcegos
+            new_bats = random.sample(new_agents, 3)
+            
+
 
     def _update(self, agents, best_agent, function, iteration, frequency, velocity, loudness, pulse_rate):
         """Method that wraps Bat Algorithm over all agents and variables.
